@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block main %}
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            {{ form.hidden_tag() }}
+            <p>{{ form.age.label }} <br> {{ form.age(size=5) }} </p>
+            <p>{{ form.gender.label }} <br> {{ form.gender() }}</p>
+            <p>{{ form.cp.label }} <br> {{ form.cp() }}</p>
+            <p>{{ form.trestbps.label }} <br> {{ form.trestbps(size=5) }}&nbsp;mm Hg</p>
+            <p>{{ form.chol.label }} <br> {{ form.chol(size=5) }}&nbsp;mg/dL</p>
+            <p>{{ form.fbs.label }} <br> {{ form.fbs() }}</p>
+            <p>{{ form.restecg.label }} <br> {{ form.restecg() }}</p>
+            <p>{{ form.thalach.label }} <br> {{ form.thalach(size=5) }}&nbsp;bpm</p>
+            <p>{{ form.exang.label }} <br> {{ form.exang() }}</p>
+            <p>{{ form.oldpeak.label }} <br> {{ form.oldpeak(size=5) }}</p>
+            <p>{{ form.submit() }}</p>&nbsp;<button type="button" class="button" onclick=simple_action("{{ url_for('signout') }}")>Sign Out</button>
+        </form>
+        <script type="text/javascript">
+            function simple_action(target) {
+                window.location = target
+            }
+    
+            function confirmed_action(target) {
+                if (confirm('Are you sure?')) {
+                    window.location = target
+                }
+            }
+        </script>
+{% endblock %}
